@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/user/edit_profile.css'%}">
+</head>
+<body>
+    <div class="edit-profile">
+        <div class="text-edit">Edit Your Profile</div>
+        <div class="avatar">
+            <img src="{% static 'image/Logo-img.svg' %} " width=128" height="128">
+        </div>
+        <form id="edit-form">
+                <div id="data" class="data">
+                    <input id="fullname" type="text" name="edit-fullname" placeholder="Full name" required>
+                </div>
+                <div id="data" class="data">
+                    <input id="username" type="text" name="edit-username" placeholder="User name" required>
+                </div>
+                <div id="data" class="data">
+                    <input id="password" type="password" name="edit-password" placeholder="Password" required>
+                </div>
+
+                <div class="line"></div>
+
+                <div id="data" class="data">
+                    <input id="quotes" type="text" name="edit-quotes" placeholder="About you">
+                </div>
+                <div id="data" class="data">
+                    <p>Gender</p>
+                    <select id="gender" name="Gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div id="data" class="data">
+                    <p>Birthdate</p>
+                    <input id="birthday" type="date" name="edit-birthdate" placeholder="Birthdate" required>
+                </div>
+                <div id="data" class="data">
+                    <input id="hashtag" type="text" name="hashtag" placeholder="Your favorite hashtag">
+                </div>
+                <div id="form">
+                    <div id="btn-submit" class="btn-submit">
+                        <button id="button" type="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

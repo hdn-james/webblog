@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/hashtag/hashtag_detail.css'%}">
+</head>
+
+<body>
+    <div id="navbar_placeholder"></div>
+    <div class="hashtag_detail">
+        <div class="info">
+            <div class="avatar"><img src="{% static 'image/Logo-img.svg' %} " width=48" height="48"></div>
+            <div class="hash-tag">{{ hashtag }}</div>
+        </div>
+        <div class="follow-number">
+            <p>5000 Followers</p>
+        </div>
+        <div class="time text">
+            <p>Created on December 11th, 2020</p>
+        </div>
+    </div>
+</body>
+
+</html>

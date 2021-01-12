@@ -1,0 +1,24 @@
+.wall {
+	display: flex;
+	width: 1168px;
+	margin: 120px auto;
+	font-family: Helvetica;
+	height: fit-content;
+}
+
+.wall .column-left {
+	border: none;
+}
+
+.wall .column-right {
+}
+
+.post-list {
+	font-family: helvetica;
+	width: 700px;
+	border-radius: 10px;
+	display: flex;
+	margin-left: 468px;
+	border: none;
+	flex-direction: column;
+}

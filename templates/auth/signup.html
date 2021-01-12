@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/auth/signup.css' %}">
+</head>
+
+<body>
+    <div id="signup-dialog" class="signup-dialog">
+        <div class="container-signup animate" id="container-signup-id">
+            <img id="img" src="{% static 'image/signupview.jpeg' %}">
+            <form id="signup-form">
+                <div id="text" class="text-signup">Create Account</div>
+                <div id="data" class="data">
+                    <input id="fullname" type="text" name="fullname" placeholder="Full name" required>
+                </div>
+                <div id="data" class="data">
+                    <input id="username" type="text" name="signup-username" placeholder="User name" required>
+                </div>
+                <div id="data" class="data">
+                    <input id="password" type="password" name="signup-password" placeholder="Password" required>
+                </div>
+                <div id="form">
+                    <div id="btn-signup" class="btn-signup">
+                        <button id="button" type="submit">SIGN UP</button>
+                    </div>
+                    <div id="signup-link" class="signup-link">Already have an account? <a id="to-login"> LOG IN
+                        </a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    $("#signup-form").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "{% url 'sign_up_view'%}",
+            type: 'POST',
+            dataType: "json",
+            data: {
+                username: $('input[name=signup-username]').val(),
+                password: $('input[name=signup-password]').val()
+            },
+            success: function (res, status) {
+                if (res.status === 'OK'){
+                    location.reload();
+                }
+                else{
+                    alert('Ten tai khoan da ton tai');
+                }
+            }
+        })
+    })
+</script>
