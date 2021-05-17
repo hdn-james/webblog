@@ -4,7 +4,8 @@ from post.models import Thread, Content, Emote
 def get_all_threads(page_index: int):
     start = page_index * 5
     end = start + 5
-    threads = list(Thread.objects.filter(parent_thread__isnull=True)[start:end])
+    threads = list(Thread.objects.filter(
+        parent_thread__isnull=True)[start:end])
     res = []
     for thread in threads:
         res.append(get_thread_detail(thread))
@@ -86,7 +87,8 @@ def emote(thread_id, user, value):
 
 
 def get_threads_by_topic(topic: str):
-    threads = Thread.objects.filter(hashtag__search=topic, parent_thread__isnull=True)
+    threads = Thread.objects.filter(
+        hashtag__search=topic, parent_thread__isnull=True)
     return {
         'topic': topic,
         'threads': [

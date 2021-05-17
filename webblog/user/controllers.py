@@ -12,7 +12,8 @@ from post.controllers import get_thread_detail
 
 def get_user_by_token(token: str):
     try:
-        auth_token = AuthToken.objects.get(token=token, expired_day__gt=timezone.now())
+        auth_token = AuthToken.objects.get(
+            token=token, expired_day__gt=timezone.now())
         return auth_token.user
     except AuthToken.DoesNotExist:
         return None
@@ -64,6 +65,3 @@ def get_user_detail(user: User):
             get_thread_detail(thread) for thread in threads
         ]
     }
-
-
-

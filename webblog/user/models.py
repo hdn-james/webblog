@@ -32,4 +32,3 @@ class AuthToken(models.Model):
     token = models.CharField(max_length=50)
     created_day = models.DateTimeField(default=timezone.now)
     expired_day = models.DateTimeField(default=get_expired_day)
-

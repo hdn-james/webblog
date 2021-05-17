@@ -21,4 +21,3 @@ class UserTest(TestCase):
 
     def test_one_one_two(self):
         self.assertEqual(1+1, 2)
-

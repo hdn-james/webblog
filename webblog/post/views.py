@@ -1,4 +1,7 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -122,4 +125,3 @@ def search_thread_view(request: Request):
 def get_threads_topic_view(request: Request, topic: str):
     response_data = get_threads_by_topic(topic)
     return render(request, 'hashtag/hashtag.html', response_data)
-

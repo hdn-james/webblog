@@ -48,7 +48,8 @@ def sign_up_view(request: Request):
             'message': 'Tao tai khoan thanh cong',
         }
         response = Response(response_data)
-        response.set_cookie('auth_token', auth_token, max_age=60 * 60 * 24 * 30)
+        response.set_cookie('auth_token', auth_token,
+                            max_age=60 * 60 * 24 * 30)
     else:
         response_data = {
             'status': 'KO',
@@ -70,7 +71,8 @@ def sign_in_view(request: Request):
             'password': password
         }
         response = Response(response_data)
-        response.set_cookie('auth_token', auth_token, max_age=60 * 60 * 24 * 30)
+        response.set_cookie('auth_token', auth_token,
+                            max_age=60 * 60 * 24 * 30)
     else:
         response_data = {
             'status': 'KO',
