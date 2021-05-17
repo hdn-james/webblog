@@ -26,7 +26,7 @@ def create_thread_view(request: Request):
     if not user:
         response_data = {
             'status': 'KO',
-            'message': 'Ban chua dang nhap'
+            'message': 'Not Logged-in'
         }
         return Response(response_data)
 
@@ -37,7 +37,7 @@ def create_thread_view(request: Request):
         if create_thread(hashtag, author, content):
             response_data = {
                 'status': 'OK',
-                'message': 'Dang bai thanh cong',
+                'message': 'Posted',
             }
     return Response(response_data)
 
@@ -48,7 +48,7 @@ def get_thread_detail_view(request: Request, thread_id: int):
     if not thread:
         response_data = {
             'status': 'KO',
-            'message': 'Bai viet khong ton tai'
+            'message': 'Post not exist'
         }
 
         return Response(response_data)
@@ -65,14 +65,14 @@ def get_thread_detail_view(request: Request, thread_id: int):
         thread.content_set().get(pk=thread_id).save()
         response_data = {
             'status': 'OK',
-            'message': 'Cap nhat bai viet thanh cong'
+            'message': 'Updated post'
         }
 
     if request.method == 'DELETE':
         delete_thread(thread_id)
         response_data = {
             'status': 'OK',
-            'message': 'Xoa bai viet thanh cong'
+            'message': 'Post deleted'
         }
     return Response(response_data)
 
@@ -85,11 +85,11 @@ def comment_view(request: Request, thread_id: int):
         if user and create_comment(thread_id, user, comment):
             return Response({
                 'status': 'OK',
-                'message': 'Them comment thanh cong'
+                'message': 'Comment added'
             })
     return Response({
         'status': 'KO',
-        'message': 'Them comment that bai'
+        'message': 'Comment not added'
     })
 
 
@@ -103,16 +103,16 @@ def emote_view(request: Request, thread_id: int):
         if emote(thread_id, user, value):
             return Response({
                 'status': 'OK',
-                'message': 'Emote thành công'
+                'message': 'Emoted'
             })
     else:
         return Response({
             'status': 'KO',
-            'message': 'Chua dang nhap'
+            'message': 'Not Logged-in'
         })
     return Response({
         'status': 'KO',
-        'message': 'Emote thất bại'
+        'message': 'Emote fail'
     })
 
 

@@ -23,7 +23,7 @@ def get_user_view(request: Request):
         if request.is_ajax():
             response_data = {
                 'status': 'OK',
-                'message': 'Nguoi dung da dang nhap',
+                'message': 'Logged-in',
                 'username': user.username
             }
             return Response(response_data)
@@ -32,7 +32,7 @@ def get_user_view(request: Request):
             return render(request, 'wall/wall.html', response_data)
     response_data = {
         'status': 'KO',
-        'message': 'Nguoi dung chua dang nhap',
+        'message': 'Not Logged-in',
     }
     return Response(response_data)
 
@@ -45,7 +45,7 @@ def sign_up_view(request: Request):
         auth_token = sign_in(username, password)
         response_data = {
             'status': 'OK',
-            'message': 'Tao tai khoan thanh cong',
+            'message': 'Account created',
         }
         response = Response(response_data)
         response.set_cookie('auth_token', auth_token,
@@ -53,7 +53,7 @@ def sign_up_view(request: Request):
     else:
         response_data = {
             'status': 'KO',
-            'message': 'Ten tai khoan da ton tai',
+            'message': 'Account existed',
         }
         response = Response(response_data)
     return response
@@ -67,7 +67,7 @@ def sign_in_view(request: Request):
     if auth_token:
         response_data = {
             'status': 'OK',
-            'message': 'Dang nhap thanh cong',
+            'message': 'Logged-in',
             'password': password
         }
         response = Response(response_data)
@@ -76,7 +76,7 @@ def sign_in_view(request: Request):
     else:
         response_data = {
             'status': 'KO',
-            'message': 'Dang nhap that bai'
+            'message': 'Loggin fail'
         }
         response = Response(response_data)
     return response
@@ -103,5 +103,5 @@ def profile_view(request: Request):
     else:
         return Response({
             'status': 'KO',
-            'message': 'Chua dang nhap'
+            'message': 'Not Logged-in'
         })
