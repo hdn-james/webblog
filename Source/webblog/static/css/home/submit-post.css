@@ -1,0 +1,117 @@
+.create-post {
+	display: block;
+	font-size: 1.5rem;
+	width: 1088px;
+	min-height: 100px;
+	border: none;
+	margin-top: 140px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	background-color: #fff;
+	border-radius: 10px;
+
+	box-shadow: 0px 3px 8px #707070;
+}
+.create-post .logo-gray-title {
+	display: flex;
+	height: 84px;
+}
+.create-post .logo-gray-title .logo-gray {
+	margin: auto 16px;
+	float: left;
+}
+.create-post .logo-gray-title .title-wrapper {
+	width: calc(100% - 110px);
+	margin: 10px 0px auto;
+}
+
+.create-post .input-wrapper {
+	margin: auto 10px;
+	padding-right: 20px;
+	padding-top: auto;
+	padding-bottom: auto;
+}
+.create-post input {
+	width: 100%;
+	line-height: 2.5rem;
+	font-size: 1.4rem;
+	background: none;
+	border-radius: 8px;
+	padding-left: 20px;
+	outline: none;
+	border: none;
+	transition: all 0.5s;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border: 1px solid #70707046;
+}
+.create-post input:focus {
+	box-shadow: 0px 3px 8px #707070;
+}
+.submit-post-textarea,
+.submit-hashtag-textarea {
+	font-family: Helvetica;
+	font-size: 1rem;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	text-align: justify;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	transition: all 0.5s;
+	border: 1px solid #70707046;
+}
+.submit-post-textarea:focus {
+	box-shadow: 0px 3px 8px #707070;
+}
+.create-post .input-wrapper {
+	padding-left: 3px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.btn-confirm-submit-wrapper {
+	display: inline-block;
+	margin-left: 90%;
+	margin-right: 10%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.confirm-submit {
+	font-family: Helvetica;
+	font-size: 1rem;
+	padding: 10px 20px;
+	border-radius: 44px;
+	background: #fa6900;
+	font-size: 14px;
+	text-decoration: none;
+	color: #ffffff;
+	box-shadow: 0px 3px 8px #707070;
+	width: 80px;
+	text-align: center;
+	float: right;
+	margin-right: 90px;
+}
+
+.confirm-submit:hover {
+	background-color: #f38630;
+}
+
+.btn2 {
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 44px;
+	background: #fa6900;
+	font-size: 14px;
+	text-decoration: none;
+	color: #ffffff;
+	box-shadow: 0px 3px 8px #707070;
+	width: 80px;
+	text-align: center;
+	position: relative;
+	float: right;
+	margin-right: 90px;
+}

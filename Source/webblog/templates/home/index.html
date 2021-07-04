@@ -1,0 +1,23 @@
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patronum | Web-blog</title>
+    <meta name="description" content="CS300 web-blog">
+    <meta name="robots" content="index,follow">
+    <link rel="icon" href="{% static 'image/logo-img.svg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+</head>
+
+<body>
+    {% include 'navigation_bar/navbar.html' %}
+    {% include 'home/submit-post.html' %}
+    {% include 'post/post.html'%}
+</body>
+
+</html>

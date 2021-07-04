@@ -1,0 +1,87 @@
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/navigation_bar/navbar.css'%}">
+    <script src="{% static 'javascript/navbar/navbar.js' %}"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img onclick="go_home()" id="gohome" class="logo-img" src="{% static 'image/logo-img.svg'%}"
+                title="Expecto Patronum">
+            <img onclick="go_home()" id="gohome" class="logo-typo" src="{% static 'image/logo-typo.svg'%}"
+                title="Expecto Patronum">
+        </div>
+        <div class="search">
+            <form id="search-form" autocomplete="off">
+                <div class="search-wrapper">
+                    <input type="text" id="input_search" name="input_search" placeholder="Search by topic">
+                    <button type="submit" class="submit">
+                        <img src="{% static 'image/search_icon.svg'%}">
+                    </button>
+                </div>
+            </form>
+            <div class="search-results">
+                <div class="result-list">
+                    <div class="result-item">
+                        <div class="result-title">Title</div>
+                        <div class="result-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil,
+                            ducimus.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="account" class="account"></div>
+    </header>
+
+    <div class="hidden-signup" id="hidden-signup-id">
+        {% include 'auth/signup.html' %}
+    </div>
+    <div class="hidden-signin" id="hidden-signin-id">
+        {% include 'auth/signin.html' %}
+    </div>
+
+</body>
+
+<script>
+    var account_div = document.getElementById('account');
+    $.ajax({
+        url: {% url 'get_user_view' %},
+        type: 'GET',
+        dataType: "json",
+        success: function (res, status) {
+            if (res.status === 'OK') {
+                account_div.innerHTML = `
+                    <button id="btn-account-id" class="btn-account" title="Account">
+                        <img id="btn-account-id" src="{% static 'image/account_icon.svg' %}" width=24 height=24>
+                    </button>
+                    <a class="username_">${res.username}</a>
+                    <div id="my_account" class="dropdown-content">
+                        <a href="{% url 'get_user_view' %}">Profile</a>
+                        <a href="{% url 'sign_out_view' %}">Log out</a>
+                    </div>
+                `;
+            }
+            else {
+                account_div.innerHTML = `
+                    <button id="btn-account-id" class="btn-account" title="Account">
+                    <img id="btn-account-id" src="{% static 'image/account_icon.svg' %}" width=24 height=24>
+                    </button>
+                    <div id="my_account" class="dropdown-content">
+                        <a id="dropdown-signin">Sign In</a>
+                        <a id="dropdown-signup">Sign Up</a>
+                    </div>
+                    <a id="signup-btn" class="btn btn-signup1" title="Sign Up">Sign Up</a>
+                    <a id="signin-btn" class="btn btn-login1" title="Login">Login</a>
+                `;
+            }
+        }
+    })
+
+    $('#search-form').submit(function (e){
+        e.preventDefault();
+        window.location.replace('/thread/topic/' + $('#input_search').val());
+    })
+</script>
